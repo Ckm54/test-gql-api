@@ -1,0 +1,13 @@
+{
+  "name": "test-gql-api",
+  "version": "1.0.0",
+  "description": "a simple test graphql api",
+  "main": "index.js",
+  "repository": "https://github.com/Ckm54/test-gql-api.git",
+  "author": "collins kiplangat",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.3.2",
+    "typescript": "^5.1.6"
+  }
+}
