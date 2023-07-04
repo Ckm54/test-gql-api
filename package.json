@@ -6,27 +6,35 @@
   "repository": "https://github.com/Ckm54/test-gql-api.git",
   "author": "collins kiplangat",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev --respawn --transpile-only src/server.ts"
+  },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
     "@types/config": "^3.3.0",
     "@types/cookie-parser": "^1.4.3",
+    "@types/cors": "^2.8.13",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.3.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.1.6"
   },
   "dependencies": {
     "@apollo/server": "^4.7.5",
     "@typegoose/typegoose": "^11.3.0",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.20.2",
     "class-validator": "^0.14.0",
     "config": "^3.3.9",
     "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "graphql": "^16.7.1",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^7.3.1",
     "redis": "^4.6.7",
+    "reflect-metadata": "^0.1.13",
     "type-graphql": "^2.0.0-beta.2"
   }
 }
