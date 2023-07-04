@@ -1,9 +1,11 @@
-export default {
-  PORT: "PORT",
-  dbUri: "MONGODB_LOCAL_URI",
+require("dotenv").config();
 
-  accessTokenPrivateKey: "ACCESS_TOKEN_PRIVATE_KEY",
-  accessTokenPublicKey: "ACCESS_TOKEN_PUBLIC_KEY",
-  refreshTokenPrivateKey: "REFRESH_TOKEN_PRIVATE_KEY",
-  refreshTokenPublicKey: "REFRESH_TOKEN_PUBLIC_KEY",
+export default {
+  PORT: process.env.PORT,
+  dbUri: process.env.MONGODB_LOCAL_URI,
+
+  accessTokenPrivateKey: process.env.ACCESS_TOKEN_PRIVATE_KEY,
+  accessTokenPublicKey: process.env.ACCESS_TOKEN_PUBLIC_KEY,
+  refreshTokenPrivateKey: process.env.REFRESH_TOKEN_PRIVATE_KEY,
+  refreshTokenPublicKey: process.env.REFRESH_TOKEN_PUBLIC_KEY,
 };
