@@ -1,4 +1,4 @@
-import config from "config";
+import config from "../../config/default";
 import { CookieOptions } from "express";
 import { GraphQLError } from "graphql";
 import errorHandler from "../controllers/error.controller";
@@ -9,8 +9,10 @@ import redisClient from "../utils/connectRedis";
 import { signJwt, verifyJwt } from "../utils/jwt";
 import deserializeUser from "../middleware/deserializeUser";
 
-const accessTokenExpiresIn = config.get<number>("accessTokenExpiresIn");
-const refreshTokenExpiresIn = config.get<number>("refreshTokenExpiresIn");
+const accessTokenExpiresIn = config.accessTokenExpiresIn;
+// config.get<number>("accessTokenExpiresIn");
+const refreshTokenExpiresIn = config.refreshTokenExpiresIn;
+// config.get<number>("refreshTokenExpiresIn");
 
 // COOKIE OPTIONS
 const cookieOptions: CookieOptions = {
@@ -113,7 +115,7 @@ export default class UserService {
   // Get currently logged in user
   async getMe({ req, res, deserializer }: Context) {
     try {
-      const user = await deserializer(req);
+      const user = await deserializeUser(req);
 
       return {
         status: "success",

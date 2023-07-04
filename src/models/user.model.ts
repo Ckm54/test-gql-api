@@ -1,21 +1,21 @@
 import {
-  getModelForClass,
-  prop,
-  pre,
-  modelOptions,
-  Severity,
-  index,
   ModelOptions,
+  Severity,
+  getModelForClass,
+  index,
+  pre,
+  prop,
 } from "@typegoose/typegoose";
 import bcrypt from "bcryptjs";
-import config from "config";
+import config from "../../config/default";
 
 @pre<User>("save", async function (next) {
   if (!this.isModified("password")) return next();
 
   this.password = await bcrypt.hash(
     this.password,
-    config.get<number>("costFactor")
+    // config.get<number>("costFactor")
+    config.costFactor
   );
   this.passwordConfirm = undefined;
   return next();

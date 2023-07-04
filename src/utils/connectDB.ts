@@ -1,7 +1,8 @@
-import config from "config";
+import config from "../../config/custom-env-vars";
 import mongoose from "mongoose";
 
-const localUri = config.get<string>("dbUri");
+// const localUri = config.get<string>("dbUri");
+const localUri = config.dbUri as string;
 
 async function connectDB() {
   try {

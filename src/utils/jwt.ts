@@ -1,5 +1,5 @@
 import jwt, { SignOptions } from "jsonwebtoken";
-import config from "config";
+import configVars from "../../config/custom-env-vars";
 
 export const signJwt = (
   payload: Object,
@@ -7,7 +7,8 @@ export const signJwt = (
   options?: SignOptions
 ) => {
   const privateKey = Buffer.from(
-    config.get<string>(keyName),
+    // config.get<string>(keyName),
+    configVars[keyName] as string,
     "base64"
   ).toString("ascii");
 
@@ -21,9 +22,10 @@ export const verifyJwt = <T>(
   token: string,
   keyName: "accessTokenPublicKey" | "refreshTokenPublicKey"
 ): T | null => {
-  const publicKey = Buffer.from(config.get<string>(keyName), "base64").toString(
-    "ascii"
-  );
+  const publicKey = Buffer.from(
+    configVars[keyName] as string,
+    "base64"
+  ).toString("ascii");
 
   try {
     return jwt.verify(token, publicKey, {
