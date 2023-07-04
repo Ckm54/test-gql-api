@@ -5,7 +5,7 @@ import redisClient from "../utils/connectRedis";
 import UserModel from "../models/user.model";
 import errorHandler from "../controllers/error.controller";
 
-const deserializer = async (req: Request) => {
+const deserializeUser = async (req: Request) => {
   try {
     // get the access token
     let access_token;
@@ -51,4 +51,4 @@ const deserializer = async (req: Request) => {
   }
 };
 
-export default deserializer;
+export default deserializeUser;
